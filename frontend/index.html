@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Pawon Bunda Ety — Sosis Solo, Karipap & Onde-Onde Cileunyi</title>
   <meta name="description"
     content="Jajanan rumahan Cileunyi: Sosis Solo, Karipap, Onde-onde. Fresh digoreng setiap hari. Pesan via WA, min 20 pcs.">
@@ -31,6 +31,11 @@
 
     html {
       scroll-behavior: smooth;
+    }
+
+    /* v1.4 — agar anchor tidak tertutup navbar sticky */
+    section[id] {
+      scroll-margin-top: 76px;
     }
 
     body {
@@ -247,22 +252,11 @@
     @media (prefers-reduced-motion: reduce) {
 
       .btn-primary-wa,
-      .qty {
+      .qty,
+      .chat-typing .pan,
+      .chat-typing .dots i,
+      .card-media img {
         animation: none !important;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .social-proof {
-        font-size: 0.8rem;
-        padding: 7px 14px;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
-        max-width: 340px;
-        margin: 0 auto;
       }
     }
 
@@ -307,9 +301,7 @@
       box-shadow: 0 16px 36px rgba(74, 47, 27, 0.2);
     }
 
-    /* ============================================================
-       v1.3 — MEDIA + LIGHTBOX TRIGGER
-       ============================================================ */
+    /* ===== v1.3 — MEDIA + LIGHTBOX TRIGGER ===== */
     .card-media {
       position: relative;
       cursor: pointer;
@@ -322,12 +314,27 @@
       outline-offset: -3px;
     }
 
+    /* v1.4 — SKELETON SHIMMER sebelum gambar termuat */
     .card-media img {
       width: 100%;
       height: 225px;
       object-fit: cover;
       display: block;
       transition: transform 0.4s ease;
+      background: linear-gradient(100deg, #efe3cf 40%, #f9f2e3 50%, #efe3cf 60%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s linear infinite;
+    }
+
+    .card-media img.loaded {
+      animation: none;
+      background: #efe9dd;
+    }
+
+    @keyframes shimmer {
+      to {
+        background-position: -200% 0;
+      }
     }
 
     .card-media:hover img {
@@ -387,9 +394,7 @@
       flex: 1;
     }
 
-    /* ============================================================
-       v1.3 — UNIT & PACKAGE PRICING
-       ============================================================ */
+    /* ===== v1.3 — UNIT & PACKAGE PRICING ===== */
     .pricing {
       display: flex;
       flex-direction: column;
@@ -435,9 +440,7 @@
       font-weight: 500;
     }
 
-    /* ============================================================
-       v1.3 — QUANTITY STEPPER / QUICK ADD
-       ============================================================ */
+    /* ===== v1.3 — QUANTITY STEPPER / QUICK ADD ===== */
     .qty-row {
       display: flex;
       gap: 10px;
@@ -593,8 +596,177 @@
     }
 
     /* ============================================================
-       v1.3 — FLOATING CART BAR
+       v1.4 — FAQ ACCORDION
        ============================================================ */
+    .faq {
+      background: var(--putih);
+      padding: 56px 6% 48px;
+    }
+
+    .faq h2 {
+      text-align: center;
+      font-size: 1.7rem;
+      margin-bottom: 6px;
+    }
+
+    .faq .sub {
+      text-align: center;
+      color: #8a7154;
+      margin-bottom: 30px;
+      font-size: 0.95rem;
+    }
+
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .faq-item {
+      border: 1px solid rgba(122, 82, 48, 0.18);
+      border-radius: 14px;
+      background: var(--putih);
+      overflow: hidden;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .faq-item.open {
+      border-color: rgba(217, 123, 41, 0.55);
+      box-shadow: 0 6px 18px rgba(74, 47, 27, 0.08);
+    }
+
+    .faq-q {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 16px 18px;
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--coklat-tua);
+      text-align: left;
+      font-family: inherit;
+      line-height: 1.4;
+    }
+
+    .faq-q:hover {
+      color: var(--coklat);
+    }
+
+    .faq-q:focus-visible {
+      outline: 3px solid var(--oranye);
+      outline-offset: -3px;
+      border-radius: 11px;
+    }
+
+    .faq-q svg {
+      width: 18px;
+      height: 18px;
+      color: var(--oranye);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-q svg {
+      transform: rotate(180deg);
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+
+    .faq-a-inner {
+      padding: 0 18px 18px;
+      color: #6b543b;
+      font-size: 0.92rem;
+    }
+
+    .faq-a-inner b {
+      color: var(--coklat-tua);
+    }
+
+    .faq-cta {
+      text-align: center;
+      margin-top: 26px;
+      font-size: 0.9rem;
+      color: #6b543b;
+    }
+
+    .faq-cta a {
+      color: var(--whatsapp-dark);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .faq-cta a:hover {
+      text-decoration: underline;
+    }
+
+    .faq-cta button {
+      background: none;
+      border: none;
+      color: var(--oranye);
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-family: inherit;
+      text-decoration: underline;
+      padding: 0;
+    }
+
+    /* ============================================================
+       v1.4 — STICKY BOTTOM NAVIGATION (MOBILE ONLY)
+       ============================================================ */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 997;
+      background: var(--coklat-tua);
+      padding: 8px 14px calc(8px + env(safe-area-inset-bottom, 0px));
+      gap: 10px;
+      box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .mn-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #fff;
+      border-radius: 14px;
+      padding: 11px 8px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      font-family: inherit;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.15s, background 0.2s;
+    }
+
+    .mn-btn:active {
+      transform: scale(0.96);
+    }
+
+    .mn-chat {
+      background: var(--whatsapp);
+      border-color: transparent;
+    }
+
+    /* ===== v1.3 — FLOATING CART BAR ===== */
     .cart-bar {
       position: fixed;
       left: 16px;
@@ -772,9 +944,7 @@
       font-weight: 600;
     }
 
-    /* ============================================================
-       v1.3 — LIGHTBOX GALERI
-       ============================================================ */
+    /* ===== v1.3 — LIGHTBOX GALERI ===== */
     .lightbox {
       position: fixed;
       inset: 0;
@@ -921,7 +1091,6 @@
       border-color: var(--oranye);
     }
 
-    /* Sembunyikan navigasi jika cuma 1 foto */
     .lightbox.single .lb-nav,
     .lightbox.single .lb-thumbs,
     .lightbox.single .lb-count {
@@ -1092,6 +1261,78 @@
       border-bottom-right-radius: 3px;
     }
 
+    /* ============================================================
+       v1.4 — TYPING / LOADING STATE "SELAGA MENGOREG"
+       (wajan berayun + gelembung minyak) saat AI memproses
+       ============================================================ */
+    .chat-typing {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      flex-wrap: wrap;
+    }
+
+    .chat-typing .pan {
+      font-size: 1.1rem;
+      display: inline-block;
+      animation: panWobble 1s ease-in-out infinite;
+      transform-origin: 80% 80%;
+    }
+
+    @keyframes panWobble {
+
+      0%,
+      100% {
+        transform: rotate(-7deg);
+      }
+
+      50% {
+        transform: rotate(9deg) translateY(-2px);
+      }
+    }
+
+    .chat-typing .dots {
+      display: inline-flex;
+      gap: 4px;
+      align-items: flex-end;
+    }
+
+    .chat-typing .dots i {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--coklat);
+      animation: dotBounce 1s infinite;
+    }
+
+    .chat-typing .dots i:nth-child(2) {
+      animation-delay: 0.15s;
+    }
+
+    .chat-typing .dots i:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    @keyframes dotBounce {
+
+      0%,
+      100% {
+        transform: translateY(0);
+        opacity: 0.35;
+      }
+
+      50% {
+        transform: translateY(-5px);
+        opacity: 1;
+      }
+    }
+
+    .chat-typing .typing-label {
+      font-style: italic;
+      font-size: 0.84rem;
+      color: #8a7154;
+    }
+
     .chat-quick-prompts {
       padding: 8px 12px;
       background: #fff;
@@ -1172,19 +1413,34 @@
       text-decoration: none;
     }
 
-    /* Responsive Mobile */
+    /* ===== RESPONSIVE MOBILE ===== */
     @media(max-width: 600px) {
-      .chat-box {
-        width: calc(100vw - 32px);
-        right: -8px;
-        bottom: 72px;
-        height: 440px;
+
+      /* v1.4 — aktifkan bottom nav & naikkan elemen melayang */
+      .mobile-nav {
+        display: flex;
+      }
+
+      body {
+        padding-bottom: 78px;
+        /* agar footer tidak tertutup bottom nav */
+      }
+
+      .chat-widget {
+        bottom: 80px;
       }
 
       .cart-bar {
         left: 10px;
         right: 88px;
-        bottom: 10px;
+        bottom: 80px;
+      }
+
+      .chat-box {
+        width: calc(100vw - 32px);
+        right: -8px;
+        bottom: 72px;
+        height: 440px;
       }
 
       .cart-main {
@@ -1204,6 +1460,18 @@
       .qty-row {
         flex-wrap: wrap;
       }
+
+      .social-proof {
+        font-size: 0.8rem;
+        padding: 7px 14px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        max-width: 340px;
+        margin: 0 auto;
+      }
     }
   </style>
 </head>
@@ -1215,6 +1483,7 @@
     <ul>
       <li><a href="#menu">Menu</a></li>
       <li><a href="#pesanan">Cara Pesan</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#kontak">Kontak</a></li>
     </ul>
   </nav>
@@ -1228,12 +1497,11 @@
       <span class="sp-rating">4,9/5</span>
       <span class="sp-divider" aria-hidden="true"></span>
       <span class="sp-testi" id="spTesti" aria-live="polite"><span class="sp-q" id="spQuote">“Renyahnya nagih,
-          anak-anak langsung habis!”</span> <span class="sp-a" id="spAuthor">— Ibu Rani, Cileunyi</span></span>
+          anak-anak langsung habis!”</span> <span class="sp-a" id="spAuthor">— Ibu Rina, Cileunyi</span></span>
     </div>
 
     <p>Dari dapur kami untuk keluarga Anda — tanpa pengawet, dibuat dari bahan segar.</p>
 
-    <!-- v1.2 — PRIMARY CTA (WA) dulu, SECONDARY (Ghost) belakangan -->
     <div class="hero-buttons">
       <a href="https://wa.me/6282112212967?text=Halo%20Pawon%20Bunda%20Ety%2C%20saya%20mau%20pesan" target="_blank"
         rel="noopener" class="btn btn-primary-wa">
@@ -1253,11 +1521,7 @@
 
       <div class="grid" id="menuGrid">
 
-        <!-- ============================================================
-             SOSIS SOLO
-             v1.3: data-price & data-price-wholesale dipakai kalkulator
-             cart. TODO: sesuaikan angka paket dengan kebijakan asli.
-             ============================================================ -->
+        <!-- SOSIS SOLO -->
         <article class="card" data-id="sosis" data-name="Sosis Solo" data-price="4500"
           data-price-wholesale="4200">
           <div class="card-media" data-gallery="sosis" role="button" tabindex="0"
@@ -1292,8 +1556,7 @@
         </article>
 
         <!-- KARIPAP -->
-        <article class="card" data-id="karipap" data-name="Karipap" data-price="5000"
-          data-price-wholesale="4700">
+        <article class="card" data-id="karipap" data-name="Karipap" data-price="5000" data-price-wholesale="4700">
           <div class="card-media" data-gallery="karipap" role="button" tabindex="0"
             aria-label="Lihat foto Karipap lebih besar">
             <img src="https://i.ibb.co.com/pvsvvM1w/Karipap.jpg"
@@ -1326,8 +1589,7 @@
         </article>
 
         <!-- ONDE-ONDE -->
-        <article class="card" data-id="onde" data-name="Onde-Onde Wijen" data-price="3500"
-          data-price-wholesale="3300">
+        <article class="card" data-id="onde" data-name="Onde-Onde Wijen" data-price="3500" data-price-wholesale="3300">
           <div class="card-media" data-gallery="onde" role="button" tabindex="0"
             aria-label="Lihat foto Onde-Onde Wijen lebih besar">
             <img src="https://i.ibb.co.com/dZm16Dq/Onde-Onde.jpg"
@@ -1379,6 +1641,112 @@
         Pesan via WhatsApp
       </a>
     </section>
+
+    <!-- ============================================================
+         v1.4 — FAQ ACCORDION
+         PENTING: Jawaban di bawah adalah USULAN/ASUMSI.
+         Verifikasi dulu dengan Bunda Ety (H-berapa, harga kemasan,
+         met pembayaran, DP, dll.) sebelum dipublikasikan.
+         ============================================================ -->
+    <section class="faq" id="faq">
+      <h2>Tanya Dulu, Yuk! 🤔</h2>
+      <p class="sub">Pertanyaan yang paling sering masuk ke WA Bunda Ety</p>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faqA1" id="faqQ1">
+            <span>Berapa H-berapa harus pesan untuk Open PO?</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="faq-a" id="faqA1" role="region" aria-labelledby="faqQ1">
+            <div class="faq-a-inner">
+              <p>Pesanan reguler <b>20–100 pcs</b> cukup konfirmasi <b>H-2</b> sebelum jam 20.00 WIB.
+                Untuk snack box / acara di atas <b>100 pcs</b> atau kemasan custom, mohon konfirmasi
+                <b>H-3</b> agar dapur bisa menyiapkan bahan dan slot produksi terbaik untukmu.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faqA2" id="faqQ2">
+            <span>Apakah dikemas mika atau kotak dus?</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="faq-a" id="faqA2" role="region" aria-labelledby="faqQ2">
+            <div class="faq-a-inner">
+              <p>Pesanan reguler dikemas <b>paper bag food-grade</b> (gratis). Untuk snack box &amp; hampers tersedia
+                <b>mika premium</b> atau <b>kotak dus</b> dengan biaya tambahan mulai <b>Rp 2.500/box</b>, sudah
+                termasuk label custom. Tinggal sebutkan kebutuhanmu saat checkout di WA ya!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faqA3" id="faqQ3">
+            <span>Bagaimana metode pembayarannya?</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="faq-a" id="faqA3" role="region" aria-labelledby="faqQ3">
+            <div class="faq-a-inner">
+              <p>Kami menerima <b>transfer bank (BCA/BRI)</b>, <b>QRIS</b> (semua e-wallet &amp; m-banking),
+                dan <b>COD</b> untuk area radius 1 km dari Cileunyi. Untuk Minimum Order & PO besar, dimohon <b>DP 50%</b>
+                untuk mengunci slot produksi.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faqA4" id="faqQ4">
+            <span>Apakah bisa request tanpa MSG / tidak pedas / versi anak?</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="faq-a" id="faqA4" role="region" aria-labelledby="faqQ4">
+            <div class="faq-a-inner">
+              <p>Bisa banget! Semua dibuat fresh di dapur rumahan, jadi bumbu bisa disesuaikan.
+                Tulis catatan khusus (misal: <i>"tanpa MSG"</i>, <i>"tanpa cabai"</i>, <i>"potongan kecil untuk anak"</i>)
+                saat memesan — <b>tanpa biaya tambahan</b>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faqA5" id="faqQ5">
+            <span>Berapa lama daya tahan jajanannya?</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="faq-a" id="faqA5" role="region" aria-labelledby="faqQ5">
+            <div class="faq-a-inner">
+              <p>Paling nikmat disantap <b>hari yang sama</b> saat masih hangat dan renyah.
+                Kalau disimpan di wadah tertutup suhu ruang tahan <b>1–2 hari</b>; di kulkas bisa hingga
+                <b>3 hari</b> — cukup hangatkan sebentar di air fryer atau oven agar renyahnya kembali.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faqA6" id="faqQ6">
+            <span>Apakah bisa dikirim ke luar radius 5 km dari Cileunyi?</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="faq-a" id="faqA6" role="region" aria-labelledby="faqQ6">
+            <div class="faq-a-inner">
+              <p>Bisa! Dalam radius 5 km Cileunyi <b>gratis diantar</b>. Di luar itu, kami bantu kirim via
+                <b>kurir instan</b> (GoSend/Maxim) dengan ongkir ditanggung pembeli. Untuk kota sekitar Bandung
+                bisa via ekspedisi — koordinasikan dulu di WA ya.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="faq-cta">
+        Pertanyaanmu belum ada di atas?
+        <button type="button" id="faqAskAi">Tanya Asisten AI</button> atau
+        <a href="https://wa.me/6282112212967?text=Halo%20Bunda%20Ety%2C%20saya%20mau%20tanya"
+          target="_blank" rel="noopener">Chat WA Langsung ➔</a>
+      </p>
+    </section>
   </main>
 
   <footer>
@@ -1386,8 +1754,18 @@
   </footer>
 
   <!-- ============================================================
-       v1.3 — FLOATING CART BAR
+       v1.4 — STICKY BOTTOM NAVIGATION (MOBILE ONLY)
        ============================================================ -->
+  <nav class="mobile-nav" aria-label="Navigasi cepat (mobile)">
+    <a href="#menu" class="mn-btn" aria-label="Lihat menu jajanan">
+      <span aria-hidden="true">📜</span> Lihat Menu
+    </a>
+    <button type="button" class="mn-btn mn-chat" id="mnChatBtn" aria-label="Buka chat untuk bertanya atau pesan">
+      <span aria-hidden="true">💬</span> Chat / Pesan
+    </button>
+  </nav>
+
+  <!-- v1.3 — FLOATING CART BAR -->
   <div class="cart-bar" id="cartBar" role="region" aria-label="Ringkasan pesanan Anda">
     <div class="cart-breakdown" id="cartBreakdown">
       <div class="cart-breakdown-inner">
@@ -1400,8 +1778,7 @@
       </div>
     </div>
     <div class="cart-main">
-      <button type="button" class="cart-toggle" id="cartToggle" aria-expanded="false"
-        aria-controls="cartBreakdown">
+      <button type="button" class="cart-toggle" id="cartToggle" aria-expanded="false" aria-controls="cartBreakdown">
         <i data-lucide="shopping-basket"></i>
         <span id="cartSum" aria-live="polite">0 pcs</span>
         <span class="chev"><i data-lucide="chevron-up"></i></span>
@@ -1417,9 +1794,7 @@
     <p class="cart-min-hint" id="cartMinHint"></p>
   </div>
 
-  <!-- ============================================================
-       v1.3 — LIGHTBOX GALERI
-       ============================================================ -->
+  <!-- v1.3 — LIGHTBOX GALERI -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galeri foto produk">
     <button class="lb-close" id="lbClose" aria-label="Tutup galeri"><i data-lucide="x"></i></button>
     <button class="lb-nav lb-prev" id="lbPrev" aria-label="Foto sebelumnya"><i data-lucide="chevron-left"></i></button>
@@ -1430,9 +1805,7 @@
     <div class="lb-thumbs" id="lbThumbs"></div>
   </div>
 
-  <!-- ============================================================
-       WIDGET CHAT AI / WHATSAPP INTEGRATED
-       ============================================================ -->
+  <!-- WIDGET CHAT AI / WHATSAPP INTEGRATED -->
   <div class="chat-widget">
     <button class="chat-trigger" id="chatTrigger" aria-label="Buka Chat AI">
       <i data-lucide="sparkles" id="chatIcon"></i>
@@ -1459,8 +1832,8 @@
       </div>
 
       <div class="chat-quick-prompts">
-        <button class="chat-quick-btn" onclick="sendQuickMsg('Berapa minimal order?')">Minimal Order?</button>
-        <button class="chat-quick-btn" onclick="sendQuickMsg('Menu apa saja yang paling laris?')">Menu Laris?</button>
+        <button class="chat-quick-btn" onclick="sendQuickMsg('Berapa minimal order karipap / sosis solo / onde-onde nya? minimal 20pcs ya')">Minimal Order?</button>
+        <button class="chat-quick-btn" onclick="sendQuickMsg('Menu apa saja yang paling laris karipap / sosis solo / onde-onde?')">Menu Laris?</button>
         <button class="chat-quick-btn" onclick="sendQuickMsg('Bisa untuk Snack Box acara?')">Snack Box?</button>
       </div>
 
@@ -1482,11 +1855,28 @@
     lucide.createIcons();
 
     /* ============================================================
+       v1.4 — HAPTIC FEEDBACK (getar halus, diabaikan jika tak didukung)
+       ============================================================ */
+    function buzz(ms = 10) {
+      try { if (navigator.vibrate) navigator.vibrate(ms); } catch (e) { }
+    }
+
+    /* ============================================================
+       v1.4 — TYPING STATE "SELAGA MENGOREG"
+       Dipakai saat AI sedang memproses jawaban (chat & cart-ask-AI)
+       ============================================================ */
+    const TYPING_HTML = `
+      <div class="chat-typing" role="status" aria-live="polite">
+        <span class="pan" aria-hidden="true">🍳</span>
+        <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="typing-label">Sedang menggoreng jawaban...</span>
+      </div>`;
+
+    /* ============================================================
        v1.2 — ROTASI TESTIMONI SOCIAL PROOF BADGE
-       EDIT DI SINI: ganti dengan ulasan asli pelanggan Anda.
        ============================================================ */
     const heroTestimonials = [
-      { q: 'Renyahnya nagih, anak-anak langsung habis!', a: 'Ibu Rani · Cileunyi' },
+      { q: 'Renyahnya nagih, anak-anak langsung habis!', a: 'Ibu Rina · Cileunyi' },
       { q: 'Langganan snack box kantor setiap Jumat.', a: 'Pak Dedi · Rancaekek' },
       { q: 'Sosis Solonya juara, sambalnya mantap!', a: 'Mba Sari · Bandung' },
       { q: 'Onde-ondenya lembut, wanginya kelas atas.', a: 'Kak Lala · Cileunyi' }
@@ -1503,7 +1893,7 @@
       }, 350);
     }, 5000);
 
-    // Pengaturan AI API Backend (Sesuai Konfigurasi FastAPI / Qwen)
+    // Pengaturan AI API Backend
     const BACKEND_CHAT_URL = "/api/chat/stream";
     const WA_NUMBER = "6282112212967";
 
@@ -1514,11 +1904,14 @@
     const chatInput = document.getElementById('chatInput');
     const chatMessages = document.getElementById('chatMessages');
 
+    function openChatWidget() {
+      chatBox.classList.add('active');
+      chatInput.focus();
+    }
+
     chatTrigger.addEventListener('click', () => {
       chatBox.classList.toggle('active');
-      if (chatBox.classList.contains('active')) {
-        chatInput.focus();
-      }
+      if (chatBox.classList.contains('active')) chatInput.focus();
     });
 
     chatClose.addEventListener('click', () => {
@@ -1532,7 +1925,7 @@
     function appendMessage(sender, text) {
       const msgDiv = document.createElement('div');
       msgDiv.className = `chat-msg ${sender === 'user' ? 'chat-msg-user' : 'chat-msg-bot'}`;
-      msgDiv.textContent = text;
+      msgDiv.innerHTML = text;
       chatMessages.appendChild(msgDiv);
       scrollToBottom();
       return msgDiv;
@@ -1542,11 +1935,13 @@
       e.preventDefault();
       const message = chatInput.value.trim();
       if (!message) return;
+      buzz(10); // v1.4 — haptic saat kirim
 
       appendMessage('user', message);
       chatInput.value = '';
 
-      const botMsgDiv = appendMessage('bot', 'Sedang berpikir...');
+      // v1.4 — indikator animasi (wajan + gelembung) menggantikan teks statis
+      const botMsgDiv = appendMessage('bot', TYPING_HTML);
 
       try {
         const response = await fetch(BACKEND_CHAT_URL, {
@@ -1626,23 +2021,19 @@
     });
 
     function sendQuickMsg(text) {
+      buzz(10); // v1.4 — haptic
       chatInput.value = text;
       chatForm.dispatchEvent(new Event('submit'));
     }
 
     /* ############################################################
-       ############################################################
        v1.3 — PACKAGE PRICING CALCULATOR + FLOATING CART
-       + LIGHTBOX GALERI PRODUK
-       ############################################################
        ############################################################ */
 
-    // ---- Konfigurasi (EDIT DI SINI) ----
-    const MIN_ORDER_PCS = 20;   // minimal order total
-    const PAKET_STEP = 5;       // step tombol +/- (pcs)
-    const WHOLESALE_MIN = 50;   // qty >= ini memakai harga grosir per item
+    const MIN_ORDER_PCS = 20;
+    const PAKET_STEP = 5;
+    const WHOLESALE_MIN = 50;
 
-    // Ambil data produk dari atribut kartu (harga terpusat di HTML)
     const PRODUCTS = {};
     document.querySelectorAll('.card[data-id]').forEach(card => {
       const id = card.dataset.id;
@@ -1655,7 +2046,6 @@
       };
     });
 
-    // ---- Persistensi keranjang (localStorage) ----
     function saveCart() {
       try { localStorage.setItem('pbe_cart', JSON.stringify(cart)); } catch (e) { }
     }
@@ -1672,7 +2062,6 @@
     }
     let cart = loadCart();
 
-    // ---- Referensi DOM cart bar ----
     const cartBar = document.getElementById('cartBar');
     const cartBreakdown = document.getElementById('cartBreakdown');
     const cartRows = document.getElementById('cartRows');
@@ -1687,7 +2076,6 @@
 
     const fmt = n => n.toLocaleString('id-ID');
 
-    // ---- Kalkulasi keranjang (harga grosir otomatis di qty >= 50) ----
     function computeCart() {
       const rows = [];
       let pcs = 0, total = 0, hemat = 0;
@@ -1713,18 +2101,15 @@
       return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
     }
 
-    // ---- Update seluruh UI keranjang ----
     function updateCartUI() {
       const c = computeCart();
 
-      // Sinkronkan tampilan qty di tiap kartu
       for (const id in PRODUCTS) {
         const qty = cart[id] || 0;
         PRODUCTS[id].qtyEl.textContent = qty;
         PRODUCTS[id].decBtn.disabled = qty <= 0;
       }
 
-      // Visibilitas bar
       cartBar.classList.toggle('visible', c.pcs > 0);
       if (c.pcs === 0) {
         cartBreakdown.classList.remove('open');
@@ -1732,11 +2117,9 @@
         cartToggle.setAttribute('aria-expanded', 'false');
       }
 
-      // Ringkasan
       cartSum.textContent = c.pcs + ' pcs' + (c.rows.length > 1 ? ` \u00B7 ${c.rows.length} menu` : '');
       cartTotal.textContent = 'Rp ' + fmt(c.total);
 
-      // Rincian baris per baris
       cartRows.innerHTML = c.rows.map(r => `
         <div class="cart-row">
           <span>${r.name}</span>
@@ -1745,7 +2128,6 @@
           <button type="button" class="rm" data-rm="${r.id}" aria-label="Hapus ${r.name}">\u2715</button>
         </div>`).join('');
 
-      // Info hemat
       if (c.hemat > 0) {
         cartHemat.hidden = false;
         cartHemat.textContent = `\uD83C\uDF89 Hemat Rp ${fmt(c.hemat)} pakai harga Paket 50+`;
@@ -1753,7 +2135,6 @@
         cartHemat.hidden = true;
       }
 
-      // Validasi minimal order
       const ok = c.pcs >= MIN_ORDER_PCS;
       cartWa.classList.toggle('disabled', !ok);
       if (c.pcs > 0 && !ok) {
@@ -1763,7 +2144,6 @@
         cartMinHint.style.display = 'none';
       }
 
-      // Siapkan link WA
       cartWa.href = c.pcs > 0 ? buildWaLink(c) : '#';
     }
 
@@ -1771,16 +2151,15 @@
       qty = Math.max(0, Math.min(500, Math.round(qty)));
       if (qty === 0) delete cart[id]; else cart[id] = qty;
       saveCart();
-      // micro-feedback animasi angka
       const el = PRODUCTS[id].qtyEl;
       el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump');
       updateCartUI();
     }
 
-    // ---- Event: tombol +/- dan quick add di kartu produk ----
     document.getElementById('menuGrid').addEventListener('click', e => {
       const btn = e.target.closest('[data-action]');
       if (!btn) return;
+      buzz(10); // v1.4 — haptic
       const id = btn.closest('.card').dataset.id;
       const action = btn.dataset.action;
       if (action === 'inc') setQty(id, (cart[id] || 0) + PAKET_STEP);
@@ -1788,8 +2167,8 @@
       else if (action === 'pack20') setQty(id, (cart[id] || 0) + 20);
     });
 
-    // ---- Event: buka/tutup rincian, hapus item, kosongkan ----
     cartToggle.addEventListener('click', () => {
+      buzz(8); // v1.4 — haptic
       cartBreakdown.classList.toggle('open');
       cartBar.classList.toggle('details-open');
       cartToggle.setAttribute('aria-expanded', cartBreakdown.classList.contains('open'));
@@ -1798,27 +2177,33 @@
     cartRows.addEventListener('click', e => {
       const rm = e.target.closest('[data-rm]');
       if (!rm) return;
+      buzz(15); // v1.4 — haptic
       delete cart[rm.dataset.rm];
       saveCart();
       updateCartUI();
     });
 
     cartClear.addEventListener('click', () => {
+      buzz(30); // v1.4 — haptic
       cart = {};
       saveCart();
       updateCartUI();
     });
 
-    // Jembatan cart -> AI Chat (sarana "tanya dulu sebelum checkout")
+    cartWa.addEventListener('click', () => buzz(20)); // v1.4 — haptic checkout
+
+    // Jembatan cart -> AI Chat
     cartAskAi.addEventListener('click', () => {
+      buzz(10);
       const c = computeCart();
       if (c.pcs > 0) {
-        appendMessage('user', `Saya mau tanya soal pesanan saya: ${c.rows.map(r => `${r.name} ${r.qty} pcs`).join(', ')} (total Rp ${fmt(c.total)})`);
-        const botMsgDiv = appendMessage('bot', 'Sedang berpikir...');
+        const userText = `Saya mau tanya soal pesanan saya: ${c.rows.map(r => `${r.name} ${r.qty} pcs`).join(', ')} (total Rp ${fmt(c.total)})`;
+        appendMessage('user', userText);
+        const botMsgDiv = appendMessage('bot', TYPING_HTML); // v1.4 — animasi
         fetch(BACKEND_CHAT_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message: `Saya mau tanya soal pesanan saya: ${c.rows.map(r => `${r.name} ${r.qty} pcs`).join(', ')} (total Rp ${fmt(c.total)})` })
+          body: JSON.stringify({ message: userText })
         }).then(async res => {
           let reply = 'Maaf, asisten sedang tidak bisa dihubungi.';
           const ct = res.headers.get('content-type') || '';
@@ -1850,15 +2235,11 @@
           scrollToBottom();
         });
       }
-      if (!chatBox.classList.contains('active')) chatTrigger.click();
+      if (!chatBox.classList.contains('active')) openChatWidget();
     });
 
     /* ============================================================
        v1.3 — LIGHTBOX GALERI (zoom, swipe, keyboard)
-       TODO: tambahkan foto potongan bagian dalam makanan di sini
-       untuk memaksimalkan appetite appeal (mis. isian daging).
-       Setiap produk bisa punya banyak foto, contoh:
-       // { src:'images/sosis-solo-isi.jpg', caption:'Isian daging melimpah \uD83E\uDD24' },
        ============================================================ */
     const GALLERY = {
       sosis: [
@@ -1924,12 +2305,11 @@
 
     function toggleZoom() {
       const now = Date.now();
-      if (now - zoomGuard < 400) return; // cegah dobel trigger dblclick + touch
+      if (now - zoomGuard < 400) return;
       zoomGuard = now;
       lbImg.classList.toggle('zoomed');
     }
 
-    // Buka galeri dari kartu produk (klik & keyboard)
     document.querySelectorAll('.card-media').forEach(el => {
       el.addEventListener('click', () => openLightbox(el.dataset.gallery));
       el.addEventListener('keydown', e => {
@@ -1950,7 +2330,6 @@
       renderLb();
     });
 
-    // Swipe kiri/kanan + double-tap zoom (touch)
     let touchX = 0, touchY = 0;
     lbStage.addEventListener('touchstart', e => {
       touchX = e.changedTouches[0].clientX;
@@ -1961,19 +2340,68 @@
       const dy = e.changedTouches[0].clientY - touchY;
       const now = Date.now();
       if (now - lbLastTap < 300 && Math.abs(dx) < 12) {
-        toggleZoom(); // double-tap
+        toggleZoom();
       } else if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)) {
-        lbGo(dx < 0 ? 1 : -1); // swipe
+        lbGo(dx < 0 ? 1 : -1);
       }
       lbLastTap = now;
     }, { passive: true });
 
-    // Keyboard: Esc tutup, panah navigasi
     document.addEventListener('keydown', e => {
       if (!lightbox.classList.contains('open')) return;
       if (e.key === 'Escape') closeLb();
       else if (e.key === 'ArrowRight') lbGo(1);
       else if (e.key === 'ArrowLeft') lbGo(-1);
+    });
+
+    /* ############################################################
+       v1.4 — FAQ ACCORDION (single-open, aksesibel)
+       ############################################################ */
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const btn = item.querySelector('.faq-q');
+      const panel = item.querySelector('.faq-a');
+      btn.addEventListener('click', () => {
+        buzz(8);
+        const isOpen = item.classList.contains('open');
+
+        // tutup semua item lain
+        document.querySelectorAll('.faq-item.open').forEach(o => {
+          o.classList.remove('open');
+          o.querySelector('.faq-a').style.maxHeight = null;
+          o.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        });
+
+        if (!isOpen) {
+          item.classList.add('open');
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // v1.4 — CTA di FAQ: buka widget AI chat
+    document.getElementById('faqAskAi').addEventListener('click', () => {
+      buzz(10);
+      openChatWidget();
+    });
+
+    // v1.4 — Bottom nav mobile: tombol "Chat / Pesan"
+    document.getElementById('mnChatBtn').addEventListener('click', () => {
+      buzz(10);
+      openChatWidget();
+    });
+
+    /* ############################################################
+       v1.4 — SKELETON LOADING gambar produk
+       (shimmer hilang otomatis saat gambar selesai dimuat)
+       ############################################################ */
+    document.querySelectorAll('.card-media img').forEach(im => {
+      if (im.complete && im.naturalWidth > 0) {
+        im.classList.add('loaded');
+      } else {
+        im.addEventListener('load', () => im.classList.add('loaded'), { once: true });
+        im.addEventListener('error', () => im.classList.add('loaded'), { once: true });
+      }
     });
 
     // ---- Inisialisasi tampilan awal ----
