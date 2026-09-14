@@ -1,0 +1,1985 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pawon Bunda Ety — Sosis Solo, Karipap & Onde-Onde Cileunyi</title>
+  <meta name="description"
+    content="Jajanan rumahan Cileunyi: Sosis Solo, Karipap, Onde-onde. Fresh digoreng setiap hari. Pesan via WA, min 20 pcs.">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --coklat-tua: #4a2f1b;
+      --coklat: #7a5230;
+      --oranye: #d97b29;
+      --oranye-hover: #c66a1e;
+      --krem: #fbf3e4;
+      --putih: #fffdf8;
+      --whatsapp: #25D366;
+      --whatsapp-dark: #1da851;
+      --hijau: #1a7f37;
+      --merah: #c0563b;
+      --shadow: 0 8px 24px rgba(74, 47, 27, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+      background: var(--krem);
+      color: var(--coklat-tua);
+      line-height: 1.65;
+      position: relative;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      background: var(--coklat-tua);
+      color: #fff;
+      padding: 14px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .logo span {
+      color: var(--oranye);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+    }
+
+    nav a {
+      color: #f3e3cf;
+      text-decoration: none;
+      font-size: 0.93rem;
+      transition: color 0.2s;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--oranye);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      text-align: center;
+      padding: 68px 6% 54px;
+      background: linear-gradient(180deg, #fff, var(--krem));
+    }
+
+    .hero h1 {
+      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      margin-bottom: 14px;
+    }
+
+    .hero h1 em {
+      color: var(--oranye);
+      font-style: normal;
+    }
+
+    .hero p {
+      max-width: 620px;
+      margin: 0 auto 28px;
+      color: #6b543b;
+      font-size: 1.05rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--oranye);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 6px 18px rgba(217, 123, 41, 0.35);
+      transition: transform 0.2s, background 0.2s, border-color 0.2s, box-shadow 0.2s;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: var(--oranye-hover);
+    }
+
+    .btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    /* ===== v1.2 — SOCIAL PROOF BADGE ===== */
+    .social-proof {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 10px;
+      background: var(--putih);
+      border: 1px solid rgba(122, 82, 48, 0.18);
+      border-radius: 999px;
+      padding: 8px 20px;
+      margin: 0 auto 20px;
+      box-shadow: 0 4px 14px rgba(74, 47, 27, 0.08);
+      font-size: 0.88rem;
+      max-width: 92%;
+    }
+
+    .sp-stars {
+      color: #f6a821;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+    }
+
+    .sp-rating {
+      font-weight: 700;
+      color: var(--coklat-tua);
+      white-space: nowrap;
+    }
+
+    .sp-divider {
+      width: 1px;
+      height: 16px;
+      background: rgba(122, 82, 48, 0.25);
+    }
+
+    .sp-testi {
+      transition: opacity 0.35s ease;
+    }
+
+    .sp-testi.fade {
+      opacity: 0;
+    }
+
+    .sp-q {
+      font-style: italic;
+      color: var(--coklat);
+    }
+
+    .sp-a {
+      color: #8a7154;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+
+    /* ===== v1.2 — HIERARKI CTA ===== */
+    .btn-primary-wa {
+      background: var(--whatsapp);
+      color: #fff;
+      padding: 15px 34px;
+      font-size: 1.02rem;
+      font-weight: 700;
+      border-radius: 32px;
+      box-shadow: 0 8px 22px rgba(37, 211, 102, 0.4);
+      animation: waGlow 2.8s ease-in-out infinite;
+    }
+
+    .btn-primary-wa:hover {
+      background: var(--whatsapp-dark);
+      transform: translateY(-2px);
+    }
+
+    @keyframes waGlow {
+
+      0%,
+      100% {
+        box-shadow: 0 8px 22px rgba(37, 211, 102, 0.4);
+      }
+
+      50% {
+        box-shadow: 0 8px 30px rgba(37, 211, 102, 0.65);
+      }
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--coklat);
+      border: 2px solid rgba(122, 82, 48, 0.35);
+      box-shadow: none;
+      padding: 13px 30px;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(122, 82, 48, 0.07);
+      border-color: var(--coklat);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .btn-primary-wa,
+      .qty {
+        animation: none !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .social-proof {
+        font-size: 0.8rem;
+        padding: 7px 14px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        max-width: 340px;
+        margin: 0 auto;
+      }
+    }
+
+    /* ===== PRODUK ===== */
+    .produk {
+      padding: 58px 6%;
+    }
+
+    .produk h2 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 6px;
+    }
+
+    .produk .sub {
+      text-align: center;
+      color: #8a7154;
+      margin-bottom: 38px;
+      font-size: 0.95rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 26px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--putih);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s, box-shadow 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(74, 47, 27, 0.2);
+    }
+
+    /* ============================================================
+       v1.3 — MEDIA + LIGHTBOX TRIGGER
+       ============================================================ */
+    .card-media {
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      display: block;
+    }
+
+    .card-media:focus-visible {
+      outline: 3px solid var(--oranye);
+      outline-offset: -3px;
+    }
+
+    .card-media img {
+      width: 100%;
+      height: 225px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .card-media:hover img {
+      transform: scale(1.05);
+    }
+
+    .media-hint {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      background: rgba(74, 47, 27, 0.8);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 11px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      opacity: 0.9;
+    }
+
+    .media-hint svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    .card-body {
+      padding: 18px 20px 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .tag {
+      align-self: flex-start;
+      background: #f4e6d0;
+      color: var(--coklat);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 11px;
+      border-radius: 12px;
+      letter-spacing: 0.4px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      font-size: 0.92rem;
+      color: #6b543b;
+      margin-bottom: 14px;
+      flex: 1;
+    }
+
+    /* ============================================================
+       v1.3 — UNIT & PACKAGE PRICING
+       ============================================================ */
+    .pricing {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .harga {
+      font-weight: 700;
+      color: var(--oranye);
+      font-size: 1.15rem;
+    }
+
+    .harga small {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #8a7154;
+    }
+
+    .paket-chips {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      font-size: 0.74rem;
+      font-weight: 600;
+      background: #f4e6d0;
+      color: var(--coklat);
+      padding: 3px 10px;
+      border-radius: 10px;
+    }
+
+    .chip-hemat {
+      background: #e8f7ec;
+      color: var(--hijau);
+    }
+
+    .chip-hemat em {
+      font-style: normal;
+      opacity: 0.75;
+      font-weight: 500;
+    }
+
+    /* ============================================================
+       v1.3 — QUANTITY STEPPER / QUICK ADD
+       ============================================================ */
+    .qty-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .stepper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--krem);
+      border: 1px solid rgba(122, 82, 48, 0.25);
+      border-radius: 30px;
+      padding: 4px 6px;
+    }
+
+    .step-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: none;
+      background: var(--oranye);
+      color: #fff;
+      font-size: 1.15rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .step-btn:hover {
+      background: var(--oranye-hover);
+    }
+
+    .step-btn:active {
+      transform: scale(0.9);
+    }
+
+    .step-btn:disabled {
+      background: #d8c9b4;
+      cursor: not-allowed;
+    }
+
+    .stepper .qty {
+      min-width: 2.5ch;
+      text-align: center;
+      font-weight: 700;
+      display: inline-block;
+    }
+
+    .stepper small {
+      color: #8a7154;
+      font-size: 0.75rem;
+      margin-right: 4px;
+    }
+
+    @keyframes bump {
+      0% {
+        transform: scale(1);
+      }
+
+      40% {
+        transform: scale(1.3);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .qty.bump {
+      animation: bump 0.25s ease;
+    }
+
+    .btn-quick {
+      margin-left: auto;
+      background: var(--coklat-tua);
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      padding: 9px 14px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-quick:hover {
+      background: var(--coklat);
+    }
+
+    /* ===== FITUR ===== */
+    .fitur {
+      background: var(--coklat-tua);
+      color: #f3e3cf;
+      padding: 44px 6%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .fitur div {
+      flex: 1 1 200px;
+      max-width: 260px;
+      text-align: center;
+      padding: 18px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .fitur strong {
+      display: block;
+      font-size: 1.02rem;
+      margin-bottom: 6px;
+      color: #ffdcae;
+    }
+
+    .fitur small {
+      color: #d9c6a8;
+      font-size: 0.85rem;
+    }
+
+    /* ===== CTA & FOOTER ===== */
+    .pesan {
+      text-align: center;
+      padding: 54px 6%;
+    }
+
+    .pesan h2 {
+      margin-bottom: 8px;
+      font-size: 1.6rem;
+    }
+
+    .pesan p {
+      color: #6b543b;
+      margin-bottom: 24px;
+    }
+
+    footer {
+      background: var(--coklat-tua);
+      color: #cbb391;
+      text-align: center;
+      padding: 20px 6%;
+      font-size: 0.85rem;
+    }
+
+    footer span {
+      color: #f3e3cf;
+    }
+
+    /* ============================================================
+       v1.3 — FLOATING CART BAR
+       ============================================================ */
+    .cart-bar {
+      position: fixed;
+      left: 16px;
+      right: 96px;
+      bottom: 16px;
+      z-index: 998;
+      background: var(--putih);
+      border: 1px solid rgba(122, 82, 48, 0.15);
+      border-radius: 18px;
+      box-shadow: 0 12px 32px rgba(74, 47, 27, 0.28);
+      max-width: 640px;
+      transform: translateY(150%);
+      visibility: hidden;
+      transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1), visibility 0s 0.4s;
+    }
+
+    .cart-bar.visible {
+      transform: translateY(0);
+      visibility: visible;
+      transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+    }
+
+    .cart-breakdown {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .cart-breakdown.open {
+      max-height: 240px;
+      overflow-y: auto;
+    }
+
+    .cart-breakdown-inner {
+      padding: 10px 16px 12px;
+      border-bottom: 1px dashed rgba(122, 82, 48, 0.25);
+    }
+
+    .cart-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(122, 82, 48, 0.08);
+    }
+
+    .cart-row>span:first-child {
+      flex: 1;
+      font-weight: 600;
+    }
+
+    .cart-row-mid {
+      color: #8a7154;
+      font-size: 0.76rem;
+      white-space: nowrap;
+    }
+
+    .cart-row b {
+      color: var(--oranye);
+      white-space: nowrap;
+    }
+
+    .rm {
+      background: none;
+      border: none;
+      color: var(--merah);
+      cursor: pointer;
+      font-size: 0.8rem;
+      padding: 2px 5px;
+      border-radius: 6px;
+    }
+
+    .rm:hover {
+      background: #fbeae5;
+    }
+
+    .cart-hemat {
+      font-size: 0.78rem;
+      color: var(--hijau);
+      margin-top: 6px;
+      font-weight: 600;
+    }
+
+    .cart-breakdown-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .cart-clear {
+      background: none;
+      border: none;
+      color: #8a7154;
+      font-size: 0.76rem;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .cart-ask-ai {
+      background: none;
+      border: none;
+      color: var(--coklat);
+      font-size: 0.76rem;
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    .cart-main {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      flex-wrap: wrap;
+    }
+
+    .cart-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--coklat-tua);
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 4px;
+    }
+
+    .cart-toggle svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .cart-toggle .chev {
+      display: inline-flex;
+      transition: transform 0.3s;
+    }
+
+    .cart-bar.details-open .chev {
+      transform: rotate(180deg);
+    }
+
+    .cart-total {
+      font-weight: 800;
+      color: var(--oranye);
+      font-size: 1.05rem;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    .cart-wa {
+      padding: 10px 20px;
+      font-size: 0.88rem;
+      border-radius: 26px;
+      animation: none;
+    }
+
+    .cart-wa.disabled {
+      pointer-events: none;
+      opacity: 0.5;
+      filter: grayscale(0.4);
+    }
+
+    .cart-min-hint {
+      display: none;
+      font-size: 0.78rem;
+      color: var(--merah);
+      padding: 0 16px 10px;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       v1.3 — LIGHTBOX GALERI
+       ============================================================ */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(30, 18, 9, 0.93);
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .lightbox.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lb-stage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 92vw;
+    }
+
+    .lb-stage img {
+      max-width: 92vw;
+      max-height: 68vh;
+      border-radius: 12px;
+      object-fit: contain;
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      touch-action: pan-y;
+    }
+
+    .lb-stage img.zoomed {
+      transform: scale(1.8);
+      cursor: zoom-out;
+    }
+
+    .lb-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #fff;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lb-close:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .lb-close svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .lb-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #fff;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .lb-nav:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .lb-nav:disabled {
+      opacity: 0.2;
+      cursor: default;
+    }
+
+    .lb-nav svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .lb-prev {
+      left: 16px;
+    }
+
+    .lb-next {
+      right: 16px;
+    }
+
+    .lb-caption {
+      color: #f3e3cf;
+      margin-top: 14px;
+      font-size: 0.95rem;
+      text-align: center;
+      padding: 0 20px;
+      max-width: 90vw;
+    }
+
+    .lb-count {
+      color: #d9c6a8;
+      font-size: 0.78rem;
+      margin-top: 2px;
+    }
+
+    .lb-thumbs {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0 16px;
+    }
+
+    .lb-thumbs img {
+      width: 56px;
+      height: 42px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      opacity: 0.5;
+      border: 2px solid transparent;
+      transition: opacity 0.2s;
+    }
+
+    .lb-thumbs img.active,
+    .lb-thumbs img:hover {
+      opacity: 1;
+      border-color: var(--oranye);
+    }
+
+    /* Sembunyikan navigasi jika cuma 1 foto */
+    .lightbox.single .lb-nav,
+    .lightbox.single .lb-thumbs,
+    .lightbox.single .lb-count {
+      display: none;
+    }
+
+    /* ===== WIDGET AI & WHATSAPP CHAT (FLOATING) ===== */
+    .chat-widget {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+    }
+
+    .chat-trigger {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--oranye);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(217, 123, 41, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: transform 0.25s, background-color 0.25s;
+    }
+
+    .chat-trigger:hover {
+      transform: scale(1.08);
+      background: var(--oranye-hover);
+    }
+
+    .chat-status-dot {
+      position: absolute;
+      top: 3px;
+      right: 3px;
+      width: 14px;
+      height: 14px;
+      background: var(--whatsapp);
+      border: 2.5px solid var(--putih);
+      border-radius: 50%;
+    }
+
+    .chat-box {
+      position: absolute;
+      bottom: 76px;
+      right: 0;
+      width: min(90vw, 360px);
+      height: 500px;
+      max-height: 75vh;
+      background: var(--putih);
+      border-radius: 20px;
+      box-shadow: 0 12px 32px rgba(74, 47, 27, 0.22);
+      border: 1px solid rgba(122, 82, 48, 0.15);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(16px) scale(0.95);
+      transition: all 0.25s cubic-bezier(0.1, 0.9, 0.2, 1);
+    }
+
+    .chat-box.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    .chat-header {
+      background: var(--coklat-tua);
+      color: #fff;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .chat-header-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chat-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--oranye);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .chat-header h4 {
+      font-size: 0.95rem;
+      margin-bottom: 2px;
+    }
+
+    .chat-header small {
+      color: #d9c6a8;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .chat-header small::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--whatsapp);
+      border-radius: 50%;
+    }
+
+    .chat-close {
+      background: none;
+      border: none;
+      color: #f3e3cf;
+      cursor: pointer;
+      padding: 4px;
+      display: flex;
+    }
+
+    .chat-close:hover {
+      color: #fff;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: #fbf6ee;
+    }
+
+    .chat-msg {
+      max-width: 85%;
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      word-break: break-word;
+    }
+
+    .chat-msg-bot {
+      align-self: flex-start;
+      background: #fff;
+      color: var(--coklat-tua);
+      border-bottom-left-radius: 3px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(122, 82, 48, 0.08);
+    }
+
+    .chat-msg-user {
+      align-self: flex-end;
+      background: var(--oranye);
+      color: #fff;
+      border-bottom-right-radius: 3px;
+    }
+
+    .chat-quick-prompts {
+      padding: 8px 12px;
+      background: #fff;
+      border-top: 1px dashed rgba(122, 82, 48, 0.2);
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .chat-quick-btn {
+      font-size: 0.75rem;
+      background: var(--krem);
+      color: var(--coklat-tua);
+      border: 1px solid rgba(122, 82, 48, 0.2);
+      padding: 5px 10px;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .chat-quick-btn:hover {
+      background: #f0e1c9;
+    }
+
+    .chat-input-area {
+      padding: 10px;
+      background: #fff;
+      border-top: 1px solid rgba(122, 82, 48, 0.12);
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .chat-input-area input {
+      flex: 1;
+      border: 1px solid rgba(122, 82, 48, 0.2);
+      border-radius: 20px;
+      padding: 9px 14px;
+      font-size: 0.88rem;
+      outline: none;
+      background: var(--putih);
+    }
+
+    .chat-input-area input:focus {
+      border-color: var(--oranye);
+    }
+
+    .chat-send-btn {
+      background: var(--oranye);
+      border: none;
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .chat-send-btn:hover {
+      background: var(--oranye-hover);
+    }
+
+    .chat-footer-note {
+      text-align: center;
+      font-size: 0.7rem;
+      color: #8a7154;
+      padding: 4px;
+      background: #fff;
+    }
+
+    .chat-footer-note a {
+      color: var(--whatsapp-dark);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    /* Responsive Mobile */
+    @media(max-width: 600px) {
+      .chat-box {
+        width: calc(100vw - 32px);
+        right: -8px;
+        bottom: 72px;
+        height: 440px;
+      }
+
+      .cart-bar {
+        left: 10px;
+        right: 88px;
+        bottom: 10px;
+      }
+
+      .cart-main {
+        gap: 8px;
+        padding: 10px 12px;
+      }
+
+      .cart-toggle {
+        font-size: 0.85rem;
+      }
+
+      .cart-wa {
+        padding: 9px 16px;
+        font-size: 0.82rem;
+      }
+
+      .qty-row {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">Pawon Bunda Ety <span>Nusantara</span> 🥟</div>
+    <ul>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#pesanan">Cara Pesan</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <h1>Jajanan Rumahan Cileunyi, Digoreng <em>Renyah</em> Setiap Hari</h1>
+
+    <!-- v1.2 — SOCIAL PROOF BADGE (angka & testimoni = placeholder, ganti data asli) -->
+    <div class="social-proof">
+      <span class="sp-stars" aria-hidden="true">★★★★★</span>
+      <span class="sp-rating">4,9/5</span>
+      <span class="sp-divider" aria-hidden="true"></span>
+      <span class="sp-testi" id="spTesti" aria-live="polite"><span class="sp-q" id="spQuote">“Renyahnya nagih,
+          anak-anak langsung habis!”</span> <span class="sp-a" id="spAuthor">— Ibu Rani, Cileunyi</span></span>
+    </div>
+
+    <p>Dari dapur kami untuk keluarga Anda — tanpa pengawet, dibuat dari bahan segar.</p>
+
+    <!-- v1.2 — PRIMARY CTA (WA) dulu, SECONDARY (Ghost) belakangan -->
+    <div class="hero-buttons">
+      <a href="https://wa.me/6282112212967?text=Halo%20Pawon%20Bunda%20Ety%2C%20saya%20mau%20pesan" target="_blank"
+        rel="noopener" class="btn btn-primary-wa">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+        </svg>
+        Pesan via WA Sekarang
+      </a>
+      <a href="#menu" class="btn btn-ghost">Lihat Menu <i data-lucide="chevron-down"></i></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="produk" id="menu">
+      <h2>Menu Favorit</h2>
+      <p class="sub">Tiga jajanan paling dicari pelanggan — klik foto untuk memperbesar 👀</p>
+
+      <div class="grid" id="menuGrid">
+
+        <!-- ============================================================
+             SOSIS SOLO
+             v1.3: data-price & data-price-wholesale dipakai kalkulator
+             cart. TODO: sesuaikan angka paket dengan kebijakan asli.
+             ============================================================ -->
+        <article class="card" data-id="sosis" data-name="Sosis Solo" data-price="4500"
+          data-price-wholesale="4200">
+          <div class="card-media" data-gallery="sosis" role="button" tabindex="0"
+            aria-label="Lihat foto Sosis Solo lebih besar">
+            <img src="https://i.ibb.co.com/mVXMTWSs/Sosis-Solo.jpg"
+              alt="Sosis Solo — rolade goreng keemasan berisi daging cincang" loading="lazy" decoding="async"
+              width="600" height="450">
+            <span class="media-hint"><i data-lucide="zoom-in"></i> Lihat Foto</span>
+          </div>
+          <div class="card-body">
+            <span class="tag">Goreng • Tradisional</span>
+            <h3>Sosis Solo</h3>
+            <p>Rolade khas Solo berkulit tipis dan renyah, berisi daging cincang berbumbu rempah. Paling nikmat
+              disantap hangat bersama cabai rawit hijau dan sambal khas rumahan.</p>
+            <div class="pricing">
+              <span class="harga">Rp 4.500 <small>/pcs</small></span>
+              <div class="paket-chips">
+                <span class="chip">Paket 20 · Rp 90.000</span>
+                <span class="chip chip-hemat">Paket 50 · Rp 210.000 <em>hemat 15rb</em></span>
+              </div>
+            </div>
+            <div class="qty-row">
+              <div class="stepper">
+                <button type="button" class="step-btn" data-action="dec" aria-label="Kurangi Sosis Solo">−</button>
+                <span class="qty">0</span><small>pcs</small>
+                <button type="button" class="step-btn" data-action="inc" aria-label="Tambah Sosis Solo">+</button>
+              </div>
+              <button type="button" class="btn-quick" data-action="pack20" aria-label="Tambah paket 20 pcs Sosis Solo">
+                + 20</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- KARIPAP -->
+        <article class="card" data-id="karipap" data-name="Karipap" data-price="5000"
+          data-price-wholesale="4700">
+          <div class="card-media" data-gallery="karipap" role="button" tabindex="0"
+            aria-label="Lihat foto Karipap lebih besar">
+            <img src="https://i.ibb.co.com/pvsvvM1w/Karipap.jpg"
+              alt="Karipap — pastri segitiga goreng renyah berisi kari gurih" loading="lazy" decoding="async"
+              width="600" height="450">
+            <span class="media-hint"><i data-lucide="zoom-in"></i> Lihat Foto</span>
+          </div>
+          <div class="card-body">
+            <span class="tag">Goreng • Snack Box</span>
+            <h3>Karipap</h3>
+            <p>Pastri segitiga renyah keemasan dengan isian kari gurih, disajikan di atas daun pisang beserta sambal
+              pelengkap. Favorit untuk teman minum teh, hampers, dan snack box acara.</p>
+            <div class="pricing">
+              <span class="harga">Rp 5.000 <small>/pcs</small></span>
+              <div class="paket-chips">
+                <span class="chip">Paket 20 · Rp 100.000</span>
+                <span class="chip chip-hemat">Paket 50 · Rp 235.000 <em>hemat 15rb</em></span>
+              </div>
+            </div>
+            <div class="qty-row">
+              <div class="stepper">
+                <button type="button" class="step-btn" data-action="dec" aria-label="Kurangi Karipap">−</button>
+                <span class="qty">0</span><small>pcs</small>
+                <button type="button" class="step-btn" data-action="inc" aria-label="Tambah Karipap">+</button>
+              </div>
+              <button type="button" class="btn-quick" data-action="pack20" aria-label="Tambah paket 20 pcs Karipap">
+                + 20</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ONDE-ONDE -->
+        <article class="card" data-id="onde" data-name="Onde-Onde Wijen" data-price="3500"
+          data-price-wholesale="3300">
+          <div class="card-media" data-gallery="onde" role="button" tabindex="0"
+            aria-label="Lihat foto Onde-Onde Wijen lebih besar">
+            <img src="https://i.ibb.co.com/dZm16Dq/Onde-Onde.jpg"
+              alt="Onde-Onde Wijen — bola goreng berlapis wijen putih" loading="lazy" decoding="async" width="600"
+              height="450">
+            <span class="media-hint"><i data-lucide="zoom-in"></i> Lihat Foto</span>
+          </div>
+          <div class="card-body">
+            <span class="tag">Goreng • Manis</span>
+            <h3>Onde-Onde Wijen</h3>
+            <p>Bola-bola goreng berlapis wijen putih — renyah di luar, lembut di dalam dengan isian kacang hijau yang
+              wangi dan manis pas.</p>
+            <div class="pricing">
+              <span class="harga">Rp 3.500 <small>/pcs</small></span>
+              <div class="paket-chips">
+                <span class="chip">Paket 20 · Rp 70.000</span>
+                <span class="chip chip-hemat">Paket 50 · Rp 165.000 <em>hemat 10rb</em></span>
+              </div>
+            </div>
+            <div class="qty-row">
+              <div class="stepper">
+                <button type="button" class="step-btn" data-action="dec" aria-label="Kurangi Onde-Onde">−</button>
+                <span class="qty">0</span><small>pcs</small>
+                <button type="button" class="step-btn" data-action="inc" aria-label="Tambah Onde-Onde">+</button>
+              </div>
+              <button type="button" class="btn-quick" data-action="pack20" aria-label="Tambah paket 20 pcs Onde-Onde">
+                + 20</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="fitur">
+      <div><strong>🍳 Fresh Setiap Hari</strong><small>Digoreng saat dipesan, tidak menginap.</small></div>
+      <div><strong>🌿 Tanpa Pengawet</strong><small>Bahan alami, aman untuk keluarga.</small></div>
+      <div><strong>📦 Siap Snack Box</strong><small>Minimum order 20 pcs, gratis kemasan.</small></div>
+    </section>
+
+    <section class="pesan" id="pesanan">
+      <h2>Siap Memesan?</h2>
+      <p>Pesan minimal 20 pcs, Open PO dan siap diantar radius 5 KM dari Cileunyi.</p>
+      <a href="https://wa.me/6282112212967?text=Halo%2C%20saya%20mau%20pesan%20jajanan" target="_blank" rel="noopener"
+        class="btn btn-primary-wa" id="kontak">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+        </svg>
+        Pesan via WhatsApp
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 <span>Pawon Bunda Ety</span> — Jajanan rumahan — Cileunyi Bandung Jawa Barat
+  </footer>
+
+  <!-- ============================================================
+       v1.3 — FLOATING CART BAR
+       ============================================================ -->
+  <div class="cart-bar" id="cartBar" role="region" aria-label="Ringkasan pesanan Anda">
+    <div class="cart-breakdown" id="cartBreakdown">
+      <div class="cart-breakdown-inner">
+        <div id="cartRows"></div>
+        <p class="cart-hemat" id="cartHemat" hidden></p>
+        <div class="cart-breakdown-actions">
+          <button type="button" class="cart-clear" id="cartClear">🗑 Kosongkan pesanan</button>
+          <button type="button" class="cart-ask-ai" id="cartAskAi">🤖 Masih ragu? Tanya Asisten AI</button>
+        </div>
+      </div>
+    </div>
+    <div class="cart-main">
+      <button type="button" class="cart-toggle" id="cartToggle" aria-expanded="false"
+        aria-controls="cartBreakdown">
+        <i data-lucide="shopping-basket"></i>
+        <span id="cartSum" aria-live="polite">0 pcs</span>
+        <span class="chev"><i data-lucide="chevron-up"></i></span>
+      </button>
+      <span class="cart-total" id="cartTotal">Rp 0</span>
+      <a href="#" class="btn btn-primary-wa cart-wa" id="cartWa" rel="noopener" target="_blank">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+        </svg>
+        Pesan via WA
+      </a>
+    </div>
+    <p class="cart-min-hint" id="cartMinHint"></p>
+  </div>
+
+  <!-- ============================================================
+       v1.3 — LIGHTBOX GALERI
+       ============================================================ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galeri foto produk">
+    <button class="lb-close" id="lbClose" aria-label="Tutup galeri"><i data-lucide="x"></i></button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Foto sebelumnya"><i data-lucide="chevron-left"></i></button>
+    <div class="lb-stage" id="lbStage"><img id="lbImg" alt=""></div>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Foto berikutnya"><i data-lucide="chevron-right"></i></button>
+    <p class="lb-caption" id="lbCaption"></p>
+    <p class="lb-count" id="lbCount"></p>
+    <div class="lb-thumbs" id="lbThumbs"></div>
+  </div>
+
+  <!-- ============================================================
+       WIDGET CHAT AI / WHATSAPP INTEGRATED
+       ============================================================ -->
+  <div class="chat-widget">
+    <button class="chat-trigger" id="chatTrigger" aria-label="Buka Chat AI">
+      <i data-lucide="sparkles" id="chatIcon"></i>
+      <span class="chat-status-dot"></span>
+    </button>
+
+    <div class="chat-box" id="chatBox">
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="chat-avatar">E</div>
+          <div>
+            <h4>Asisten Pawon Bunda Ety</h4>
+            <small>Online | Dapur Pawon Siap Melayani</small>
+          </div>
+        </div>
+        <button class="chat-close" id="chatClose" aria-label="Tutup Chat"><i data-lucide="x"></i></button>
+      </div>
+
+      <div class="chat-messages" id="chatMessages">
+        <div class="chat-msg chat-msg-bot">
+          Halo! 👋 Selamat datang di Pawon Bunda Ety Cileunyi.<br><br>
+          Ada yang bisa dibantu? Silakan tanya mengenai menu favorit, info pemesanan, atau paket Snack Box!
+        </div>
+      </div>
+
+      <div class="chat-quick-prompts">
+        <button class="chat-quick-btn" onclick="sendQuickMsg('Berapa minimal order?')">Minimal Order?</button>
+        <button class="chat-quick-btn" onclick="sendQuickMsg('Menu apa saja yang paling laris?')">Menu Laris?</button>
+        <button class="chat-quick-btn" onclick="sendQuickMsg('Bisa untuk Snack Box acara?')">Snack Box?</button>
+      </div>
+
+      <form class="chat-input-area" id="chatForm">
+        <input type="text" id="chatInput" placeholder="Tanyakan sesuatu..." autocomplete="off" required>
+        <button type="submit" class="chat-send-btn" aria-label="Kirim"><i data-lucide="send"></i></button>
+      </form>
+
+      <div class="chat-footer-note">
+        Mau langsung diproses? <a
+          href="https://wa.me/6282112212967?text=Halo%20Bunda%20Ety%2C%20saya%20mau%20tanya%20pesanan"
+          target="_blank">Chat WA Langsung ➔</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Inisialisasi Ikon Lucide
+    lucide.createIcons();
+
+    /* ============================================================
+       v1.2 — ROTASI TESTIMONI SOCIAL PROOF BADGE
+       EDIT DI SINI: ganti dengan ulasan asli pelanggan Anda.
+       ============================================================ */
+    const heroTestimonials = [
+      { q: 'Renyahnya nagih, anak-anak langsung habis!', a: 'Ibu Rani · Cileunyi' },
+      { q: 'Langganan snack box kantor setiap Jumat.', a: 'Pak Dedi · Rancaekek' },
+      { q: 'Sosis Solonya juara, sambalnya mantap!', a: 'Mba Sari · Bandung' },
+      { q: 'Onde-ondenya lembut, wanginya kelas atas.', a: 'Kak Lala · Cileunyi' }
+    ];
+    let spIndex = 0;
+    const spTesti = document.getElementById('spTesti');
+    setInterval(() => {
+      spTesti.classList.add('fade');
+      setTimeout(() => {
+        spIndex = (spIndex + 1) % heroTestimonials.length;
+        document.getElementById('spQuote').textContent = '\u201C' + heroTestimonials[spIndex].q + '\u201D';
+        document.getElementById('spAuthor').textContent = '\u2014 ' + heroTestimonials[spIndex].a;
+        spTesti.classList.remove('fade');
+      }, 350);
+    }, 5000);
+
+    // Pengaturan AI API Backend (Sesuai Konfigurasi FastAPI / Qwen)
+    const BACKEND_CHAT_URL = "/api/chat/stream";
+    const WA_NUMBER = "6282112212967";
+
+    const chatTrigger = document.getElementById('chatTrigger');
+    const chatBox = document.getElementById('chatBox');
+    const chatClose = document.getElementById('chatClose');
+    const chatForm = document.getElementById('chatForm');
+    const chatInput = document.getElementById('chatInput');
+    const chatMessages = document.getElementById('chatMessages');
+
+    chatTrigger.addEventListener('click', () => {
+      chatBox.classList.toggle('active');
+      if (chatBox.classList.contains('active')) {
+        chatInput.focus();
+      }
+    });
+
+    chatClose.addEventListener('click', () => {
+      chatBox.classList.remove('active');
+    });
+
+    function scrollToBottom() {
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function appendMessage(sender, text) {
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `chat-msg ${sender === 'user' ? 'chat-msg-user' : 'chat-msg-bot'}`;
+      msgDiv.textContent = text;
+      chatMessages.appendChild(msgDiv);
+      scrollToBottom();
+      return msgDiv;
+    }
+
+    chatForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const message = chatInput.value.trim();
+      if (!message) return;
+
+      appendMessage('user', message);
+      chatInput.value = '';
+
+      const botMsgDiv = appendMessage('bot', 'Sedang berpikir...');
+
+      try {
+        const response = await fetch(BACKEND_CHAT_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ message: message })
+        });
+
+        if (!response.ok) throw new Error(`Server Error (${response.status})`);
+
+        const contentType = response.headers.get('content-type') || '';
+
+        // 1. PENANGANAN RESPONS STREAMING
+        if (contentType.includes('text/event-stream')) {
+          const reader = response.body.getReader();
+          const decoder = new TextDecoder("utf-8");
+          let fullText = "";
+          botMsgDiv.textContent = "";
+
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+
+            const chunk = decoder.decode(value, { stream: true });
+            const lines = chunk.split("\n");
+
+            for (const line of lines) {
+              let cleanLine = line.replace(/^data:\s*/, '').trim();
+              if (!cleanLine || cleanLine === '[DONE]') continue;
+
+              try {
+                const parsed = JSON.parse(cleanLine);
+                const content = parsed.choices?.[0]?.delta?.content || parsed.content || parsed.delta || parsed.reply || "";
+                if (content) fullText += content;
+              } catch (err) {
+                if (cleanLine !== "null") fullText += cleanLine;
+              }
+              botMsgDiv.textContent = fullText;
+              scrollToBottom();
+            }
+          }
+        }
+        // 2. PENANGANAN RESPONS JSON STANDAR
+        else {
+          const data = await response.json();
+
+          let replyText = "";
+          if (typeof data === "string") {
+            replyText = data;
+          } else if (data && typeof data === "object") {
+            replyText = data.reply || data.response || data.content || data.message || JSON.stringify(data);
+          }
+
+          if (!replyText || replyText === "null") {
+            replyText = "Maaf, tidak ada tanggapan dari server.";
+          }
+
+          botMsgDiv.textContent = replyText;
+          scrollToBottom();
+        }
+
+      } catch (error) {
+        console.error("Detail Error:", error);
+
+        botMsgDiv.replaceChildren();
+        botMsgDiv.append(document.createTextNode('Maaf, asisten sedang offline. '));
+        const whatsappLink = document.createElement('a');
+        whatsappLink.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Halo Bunda Ety, ' + message)}`;
+        whatsappLink.target = '_blank';
+        whatsappLink.rel = 'noopener noreferrer';
+        whatsappLink.textContent = 'Lanjut Tanya di WhatsApp';
+        botMsgDiv.append(whatsappLink);
+        scrollToBottom();
+      }
+    });
+
+    function sendQuickMsg(text) {
+      chatInput.value = text;
+      chatForm.dispatchEvent(new Event('submit'));
+    }
+
+    /* ############################################################
+       ############################################################
+       v1.3 — PACKAGE PRICING CALCULATOR + FLOATING CART
+       + LIGHTBOX GALERI PRODUK
+       ############################################################
+       ############################################################ */
+
+    // ---- Konfigurasi (EDIT DI SINI) ----
+    const MIN_ORDER_PCS = 20;   // minimal order total
+    const PAKET_STEP = 5;       // step tombol +/- (pcs)
+    const WHOLESALE_MIN = 50;   // qty >= ini memakai harga grosir per item
+
+    // Ambil data produk dari atribut kartu (harga terpusat di HTML)
+    const PRODUCTS = {};
+    document.querySelectorAll('.card[data-id]').forEach(card => {
+      const id = card.dataset.id;
+      PRODUCTS[id] = {
+        name: card.dataset.name,
+        price: +card.dataset.price,
+        priceWholesale: +(card.dataset.priceWholesale || card.dataset.price),
+        qtyEl: card.querySelector('.qty'),
+        decBtn: card.querySelector('[data-action="dec"]')
+      };
+    });
+
+    // ---- Persistensi keranjang (localStorage) ----
+    function saveCart() {
+      try { localStorage.setItem('pbe_cart', JSON.stringify(cart)); } catch (e) { }
+    }
+    function loadCart() {
+      let c = {};
+      try { c = JSON.parse(localStorage.getItem('pbe_cart')) || {}; } catch (e) { }
+      const out = {};
+      for (const k in c) {
+        if (PRODUCTS[k] && Number.isFinite(c[k]) && c[k] > 0) {
+          out[k] = Math.min(500, Math.floor(c[k]));
+        }
+      }
+      return out;
+    }
+    let cart = loadCart();
+
+    // ---- Referensi DOM cart bar ----
+    const cartBar = document.getElementById('cartBar');
+    const cartBreakdown = document.getElementById('cartBreakdown');
+    const cartRows = document.getElementById('cartRows');
+    const cartHemat = document.getElementById('cartHemat');
+    const cartSum = document.getElementById('cartSum');
+    const cartTotal = document.getElementById('cartTotal');
+    const cartWa = document.getElementById('cartWa');
+    const cartMinHint = document.getElementById('cartMinHint');
+    const cartToggle = document.getElementById('cartToggle');
+    const cartClear = document.getElementById('cartClear');
+    const cartAskAi = document.getElementById('cartAskAi');
+
+    const fmt = n => n.toLocaleString('id-ID');
+
+    // ---- Kalkulasi keranjang (harga grosir otomatis di qty >= 50) ----
+    function computeCart() {
+      const rows = [];
+      let pcs = 0, total = 0, hemat = 0;
+      for (const id in cart) {
+        const qty = cart[id];
+        if (!qty) continue;
+        const p = PRODUCTS[id];
+        const unit = qty >= WHOLESALE_MIN ? p.priceWholesale : p.price;
+        const sub = unit * qty;
+        hemat += (p.price - unit) * qty;
+        pcs += qty; total += sub;
+        rows.push({ id, name: p.name, qty, unit, sub });
+      }
+      return { rows, pcs, total, hemat };
+    }
+
+    function buildWaLink(c) {
+      const lines = c.rows.map(r =>
+        `\u2022 ${r.name} \u2014 ${r.qty} pcs \u00D7 Rp ${fmt(r.unit)} = Rp ${fmt(r.sub)}`
+      );
+      let msg = `Halo Pawon Bunda Ety! \uD83E\uDD69 Saya mau pesan:\n${lines.join('\n')}\n\nTotal: ${c.pcs} pcs \u2014 Rp ${fmt(c.total)}`;
+      if (c.hemat > 0) msg += `\n(sudah pakai harga paket 50+ pcs, hemat Rp ${fmt(c.hemat)})`;
+      return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+    }
+
+    // ---- Update seluruh UI keranjang ----
+    function updateCartUI() {
+      const c = computeCart();
+
+      // Sinkronkan tampilan qty di tiap kartu
+      for (const id in PRODUCTS) {
+        const qty = cart[id] || 0;
+        PRODUCTS[id].qtyEl.textContent = qty;
+        PRODUCTS[id].decBtn.disabled = qty <= 0;
+      }
+
+      // Visibilitas bar
+      cartBar.classList.toggle('visible', c.pcs > 0);
+      if (c.pcs === 0) {
+        cartBreakdown.classList.remove('open');
+        cartBar.classList.remove('details-open');
+        cartToggle.setAttribute('aria-expanded', 'false');
+      }
+
+      // Ringkasan
+      cartSum.textContent = c.pcs + ' pcs' + (c.rows.length > 1 ? ` \u00B7 ${c.rows.length} menu` : '');
+      cartTotal.textContent = 'Rp ' + fmt(c.total);
+
+      // Rincian baris per baris
+      cartRows.innerHTML = c.rows.map(r => `
+        <div class="cart-row">
+          <span>${r.name}</span>
+          <span class="cart-row-mid">${r.qty} \u00D7 Rp ${fmt(r.unit)}</span>
+          <b>Rp ${fmt(r.sub)}</b>
+          <button type="button" class="rm" data-rm="${r.id}" aria-label="Hapus ${r.name}">\u2715</button>
+        </div>`).join('');
+
+      // Info hemat
+      if (c.hemat > 0) {
+        cartHemat.hidden = false;
+        cartHemat.textContent = `\uD83C\uDF89 Hemat Rp ${fmt(c.hemat)} pakai harga Paket 50+`;
+      } else {
+        cartHemat.hidden = true;
+      }
+
+      // Validasi minimal order
+      const ok = c.pcs >= MIN_ORDER_PCS;
+      cartWa.classList.toggle('disabled', !ok);
+      if (c.pcs > 0 && !ok) {
+        cartMinHint.style.display = 'block';
+        cartMinHint.textContent = `Min. order ${MIN_ORDER_PCS} pcs \u2014 tambah ${MIN_ORDER_PCS - c.pcs} pcs lagi ya \uD83D\uDE4F`;
+      } else {
+        cartMinHint.style.display = 'none';
+      }
+
+      // Siapkan link WA
+      cartWa.href = c.pcs > 0 ? buildWaLink(c) : '#';
+    }
+
+    function setQty(id, qty) {
+      qty = Math.max(0, Math.min(500, Math.round(qty)));
+      if (qty === 0) delete cart[id]; else cart[id] = qty;
+      saveCart();
+      // micro-feedback animasi angka
+      const el = PRODUCTS[id].qtyEl;
+      el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump');
+      updateCartUI();
+    }
+
+    // ---- Event: tombol +/- dan quick add di kartu produk ----
+    document.getElementById('menuGrid').addEventListener('click', e => {
+      const btn = e.target.closest('[data-action]');
+      if (!btn) return;
+      const id = btn.closest('.card').dataset.id;
+      const action = btn.dataset.action;
+      if (action === 'inc') setQty(id, (cart[id] || 0) + PAKET_STEP);
+      else if (action === 'dec') setQty(id, (cart[id] || 0) - PAKET_STEP);
+      else if (action === 'pack20') setQty(id, (cart[id] || 0) + 20);
+    });
+
+    // ---- Event: buka/tutup rincian, hapus item, kosongkan ----
+    cartToggle.addEventListener('click', () => {
+      cartBreakdown.classList.toggle('open');
+      cartBar.classList.toggle('details-open');
+      cartToggle.setAttribute('aria-expanded', cartBreakdown.classList.contains('open'));
+    });
+
+    cartRows.addEventListener('click', e => {
+      const rm = e.target.closest('[data-rm]');
+      if (!rm) return;
+      delete cart[rm.dataset.rm];
+      saveCart();
+      updateCartUI();
+    });
+
+    cartClear.addEventListener('click', () => {
+      cart = {};
+      saveCart();
+      updateCartUI();
+    });
+
+    // Jembatan cart -> AI Chat (sarana "tanya dulu sebelum checkout")
+    cartAskAi.addEventListener('click', () => {
+      const c = computeCart();
+      if (c.pcs > 0) {
+        appendMessage('user', `Saya mau tanya soal pesanan saya: ${c.rows.map(r => `${r.name} ${r.qty} pcs`).join(', ')} (total Rp ${fmt(c.total)})`);
+        const botMsgDiv = appendMessage('bot', 'Sedang berpikir...');
+        fetch(BACKEND_CHAT_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: `Saya mau tanya soal pesanan saya: ${c.rows.map(r => `${r.name} ${r.qty} pcs`).join(', ')} (total Rp ${fmt(c.total)})` })
+        }).then(async res => {
+          let reply = 'Maaf, asisten sedang tidak bisa dihubungi.';
+          const ct = res.headers.get('content-type') || '';
+          if (ct.includes('text/event-stream')) {
+            const reader = res.body.getReader();
+            const dec = new TextDecoder('utf-8');
+            let full = '';
+            while (true) {
+              const { done, value } = await reader.read();
+              if (done) break;
+              for (const line of dec.decode(value, { stream: true }).split('\n')) {
+                const cl = line.replace(/^data:\s*/, '').trim();
+                if (!cl || cl === '[DONE]') continue;
+                try {
+                  const p = JSON.parse(cl);
+                  full += p.choices?.[0]?.delta?.content || p.content || p.reply || '';
+                } catch (err) { if (cl !== 'null') full += cl; }
+              }
+            }
+            reply = full || reply;
+          } else {
+            const d = await res.json();
+            reply = (typeof d === 'string') ? d : (d.reply || d.response || d.content || reply);
+          }
+          botMsgDiv.textContent = reply;
+          scrollToBottom();
+        }).catch(() => {
+          botMsgDiv.textContent = 'Maaf, asisten sedang offline. Silakan lanjut via WhatsApp ya!';
+          scrollToBottom();
+        });
+      }
+      if (!chatBox.classList.contains('active')) chatTrigger.click();
+    });
+
+    /* ============================================================
+       v1.3 — LIGHTBOX GALERI (zoom, swipe, keyboard)
+       TODO: tambahkan foto potongan bagian dalam makanan di sini
+       untuk memaksimalkan appetite appeal (mis. isian daging).
+       Setiap produk bisa punya banyak foto, contoh:
+       // { src:'images/sosis-solo-isi.jpg', caption:'Isian daging melimpah \uD83E\uDD24' },
+       ============================================================ */
+    const GALLERY = {
+      sosis: [
+        { src: 'https://i.ibb.co.com/mVXMTWSs/Sosis-Solo.jpg', caption: 'Sosis Solo — keemasan, renyah, disajikan dengan cabai rawit & sambal' },
+      ],
+      karipap: [
+        { src: 'https://i.ibb.co.com/pvsvvM1w/Karipap.jpg', caption: 'Karipap — segitiga renyah di atas daun pisang' },
+      ],
+      onde: [
+        { src: 'https://i.ibb.co.com/dZm16Dq/Onde-Onde.jpg', caption: 'Onde-Onde Wijen — lembut, isi kacang hijau wangi' },
+      ]
+    };
+
+    const lightbox = document.getElementById('lightbox');
+    const lbStage = document.getElementById('lbStage');
+    const lbImg = document.getElementById('lbImg');
+    const lbClose = document.getElementById('lbClose');
+    const lbPrev = document.getElementById('lbPrev');
+    const lbNext = document.getElementById('lbNext');
+    const lbCaption = document.getElementById('lbCaption');
+    const lbCount = document.getElementById('lbCount');
+    const lbThumbs = document.getElementById('lbThumbs');
+
+    let lbItems = [], lbIndex = 0, lbLastFocus = null, lbLastTap = 0, zoomGuard = 0;
+
+    function renderLb() {
+      const it = lbItems[lbIndex];
+      lbImg.src = it.src;
+      lbImg.alt = it.caption;
+      lbImg.classList.remove('zoomed');
+      lbCaption.textContent = it.caption;
+      lbCount.textContent = `${lbIndex + 1}/${lbItems.length}`;
+      lbPrev.disabled = lbNext.disabled = lbItems.length < 2;
+      lbThumbs.innerHTML = lbItems.map((t, i) =>
+        `<img src="${t.src}" alt="" class="${i === lbIndex ? 'active' : ''}" data-i="${i}">`
+      ).join('');
+    }
+
+    function openLightbox(key) {
+      lbItems = GALLERY[key] || [];
+      if (!lbItems.length) return;
+      lbIndex = 0;
+      lbLastFocus = document.activeElement;
+      renderLb();
+      lightbox.classList.toggle('single', lbItems.length === 1);
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      lbClose.focus();
+    }
+
+    function closeLb() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+      lbImg.classList.remove('zoomed');
+      if (lbLastFocus) lbLastFocus.focus();
+    }
+
+    function lbGo(dir) {
+      if (lbItems.length < 2) return;
+      lbIndex = (lbIndex + dir + lbItems.length) % lbItems.length;
+      renderLb();
+    }
+
+    function toggleZoom() {
+      const now = Date.now();
+      if (now - zoomGuard < 400) return; // cegah dobel trigger dblclick + touch
+      zoomGuard = now;
+      lbImg.classList.toggle('zoomed');
+    }
+
+    // Buka galeri dari kartu produk (klik & keyboard)
+    document.querySelectorAll('.card-media').forEach(el => {
+      el.addEventListener('click', () => openLightbox(el.dataset.gallery));
+      el.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(el.dataset.gallery); }
+      });
+    });
+
+    lbClose.addEventListener('click', closeLb);
+    lbPrev.addEventListener('click', () => lbGo(-1));
+    lbNext.addEventListener('click', () => lbGo(1));
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLb(); });
+    lbImg.addEventListener('dblclick', toggleZoom);
+
+    lbThumbs.addEventListener('click', e => {
+      const t = e.target.closest('[data-i]');
+      if (!t) return;
+      lbIndex = +t.dataset.i;
+      renderLb();
+    });
+
+    // Swipe kiri/kanan + double-tap zoom (touch)
+    let touchX = 0, touchY = 0;
+    lbStage.addEventListener('touchstart', e => {
+      touchX = e.changedTouches[0].clientX;
+      touchY = e.changedTouches[0].clientY;
+    }, { passive: true });
+    lbStage.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchX;
+      const dy = e.changedTouches[0].clientY - touchY;
+      const now = Date.now();
+      if (now - lbLastTap < 300 && Math.abs(dx) < 12) {
+        toggleZoom(); // double-tap
+      } else if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)) {
+        lbGo(dx < 0 ? 1 : -1); // swipe
+      }
+      lbLastTap = now;
+    }, { passive: true });
+
+    // Keyboard: Esc tutup, panah navigasi
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLb();
+      else if (e.key === 'ArrowRight') lbGo(1);
+      else if (e.key === 'ArrowLeft') lbGo(-1);
+    });
+
+    // ---- Inisialisasi tampilan awal ----
+    updateCartUI();
+  </script>
+
+</body>
+
+</html>
